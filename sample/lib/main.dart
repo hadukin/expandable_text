@@ -42,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             ExpandableText(
-              'dasdas https://pub.dev lolkek @das #ddd time 00:00:01 01:50:12 23:29',
+              'dasdas https://pub.dev lolkek @das #ddd time 00:00:01 01:50:12 23:29 33:29 68:12',
               expandText: 'show more',
               maxLines: 4,
               linkColor: Colors.blue,

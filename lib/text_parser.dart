@@ -50,7 +50,7 @@ List<TextSegment> parseText(String? text) {
 
   // parse urls and words starting with @ (mention) or # (hashtag)
   const pattern =
-      r"(?<keyword>(#|@)([\p{Alphabetic}\p{Mark}\p{Decimal_Number}\p{Connector_Punctuation}\p{Join_Control}]+)|(?<url>(?:(?:https?|ftp):\/\/)?[-a-z0-9@:%._\+~#=]{1,256}\.[a-z0-9]{1,6}(\/[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)?))|(?<timecode>(?:2[0-3]|[01][0-9]):([0-5][0-9])(:[0-5][0-9])?)";
+      r"(?<keyword>(#|@)([\p{Alphabetic}\p{Mark}\p{Decimal_Number}\p{Connector_Punctuation}\p{Join_Control}]+)|(?<url>(?:(?:https?|ftp):\/\/)?[-a-z0-9@:%._\+~#=]{1,256}\.[a-z0-9]{1,6}(\/[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)?))|(?<timecode>([\d]{1,2}):([0-5][0-9])(:[0-5][0-9])?)";
 
   RegExp exp = RegExp(pattern, unicode: true);
   final matches = exp.allMatches(text);
