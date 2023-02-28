@@ -46,13 +46,11 @@ List<TextSegment> parseText(String? text) {
     return segments;
   }
 
-  // ^\[(?<Time>\s*((?<hour>\d+)):((?<minute>\d+))\.((?<second>\d+)))\]
-
   // parse urls and words starting with @ (mention) or # (hashtag)
   const pattern =
-      r"(?<keyword>(#|@)([\p{Alphabetic}\p{Mark}\p{Decimal_Number}\p{Connector_Punctuation}\p{Join_Control}]+)|(?<url>(?:(?:https?|ftp):\/\/)?[-a-z0-9@:%._\+~#=]{1,256}\.[a-z0-9]{1,6}(\/[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)?))|(?<timecode>([\d]{1,2}):([0-5][0-9])(:[0-5][0-9])?)";
+      r"(?<keyword>(#|@)([\p{Alphabetic}\p{Mark}\p{Decimal_Number}\p{Connector_Punctuation}\p{Join_Control}]+)|(?<url>(https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*))))|(?<timecode>(\b(?<!:)(?:(?:[01]?\d|2[0-3]):)?(?:(?<=:)[0-5]\d|(?<!:)[0-5]?\d):[0-5]\d\b(?!:)))";
 
-  RegExp exp = RegExp(pattern, unicode: true);
+  final exp = RegExp(pattern, unicode: true, multiLine: true);
   final matches = exp.allMatches(text);
 
   var start = 0;
