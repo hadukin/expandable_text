@@ -342,7 +342,6 @@ class ExpandableTextState extends State<ExpandableText> with TickerProviderState
 
     var index = 0;
     for (var segment in segments) {
-      print(segment);
       TextStyle? style;
       TapGestureRecognizer? recognizer;
 
